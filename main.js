@@ -361,6 +361,23 @@ class Hostel {
                 return [false,null];
             }
         },
+        dispatch: async (options) => {
+            var cl = await this.lifecycleCheck("jobs")
+            if(cl[0] === true){
+                var request = await this.makeRequest({
+                    path: 'jobs.dispatch',
+                    query: null,
+                    body: {
+                        Payload: options.Payload, 
+                    },
+                    params: {job_id: options.jobId}
+                }).catch(k => {return [false,null];})
+                return request
+            }else{
+                console.log(`Rejected action, lifecycle issues: ${cl[1]}`)
+                return [false,null];
+            }
+        },
         stop: async (options) => {
             var cl = await this.lifecycleCheck("jobs")
             if(cl[0] === true){

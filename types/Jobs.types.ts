@@ -52,3 +52,10 @@ export type JobsPlanRequest = {
     policy_override?: boolean,
     query?: Record<string, string>
 }
+
+export type JobsDispatchRequest = {
+    payload: Record<string, any> | any
+    job_id?: string,
+    meta: Record<string, string>,
+    query?: Record<string, string>
+}

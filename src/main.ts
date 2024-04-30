@@ -6,7 +6,7 @@ import https from 'node:https'
 import Schema from './schema'
 import { AllocationListRequest, AllocationReadRequest, AllocationRestartRequest, AllocationSignalRequest, AllocationStopRequest } from 'types/Allocations.types'
 import AllocationConstructor from './constructors/allocations'
-import { JobsCreateRequest, JobsListRequest, JobsParseRequest, JobsPlanRequest, JobsReadRequest, JobsRevertRequest, JobsStopRequest, JobsUpdateRequest } from 'types/Jobs.types'
+import { JobsCreateRequest, JobsListRequest, JobsParseRequest, JobsPlanRequest, JobsReadRequest, JobsDispatchRequest, JobsRevertRequest, JobsStopRequest, JobsUpdateRequest } from 'types/Jobs.types'
 import JobsConstructor from './constructors/jobs'
 import { NodesDrainRequest, NodesEligibilityRequest, NodesListRequest, NodesPurgeRequest, NodesReadRequest } from 'types/Nodes.types'
 import NodesConstructor from './constructors/nodes'
@@ -114,6 +114,7 @@ export default class Hostel {
         parse: async (Request: JobsParseRequest) => this.makeRequest(JobsConstructor.parse(Request))    ,
         update: async (Request: JobsUpdateRequest) => this.makeRequest(JobsConstructor.update(Request)),
         stop: async (Request: JobsStopRequest) => this.makeRequest(JobsConstructor.stop(Request)),
+        dispatch: async (Request: JobsDispatchRequest) => this.makeRequest(JobsConstructor.revert(Request)),
         revert: async (Request: JobsRevertRequest) => this.makeRequest(JobsConstructor.revert(Request)),
         plan: async (Request: JobsPlanRequest) => this.makeRequest(JobsConstructor.plan(Request)),
     }

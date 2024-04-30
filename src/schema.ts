@@ -127,9 +127,9 @@ const BaseSchema = {
             query: [],
             params:["job_id"],
             body: ["Job","Diff","PolicyOverride"],
-            type: "delete",
+            type: "post",
             action: false,
-            path: "/job",
+            path: "/job/:job_id/plan",
         }
     },
     nodes:{

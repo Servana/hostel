@@ -3,6 +3,7 @@ import { ClusterRequest, ClusterResponse, HostelClient } from 'types/Hostel.type
 import axios, { type AxiosInstance } from 'axios'
 import http from 'node:http'
 import https from 'node:https'
+import { URLSearchParams } from "url"
 import Schema from './schema'
 import { AllocationListRequest, AllocationReadRequest, AllocationRestartRequest, AllocationSignalRequest, AllocationStopRequest } from 'types/Allocations.types'
 import AllocationConstructor from './constructors/allocations'

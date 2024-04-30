@@ -1,5 +1,5 @@
 import { ClusterRequest } from "types/Hostel.types"
-import {JobsCreateRequest, JobsListRequest, JobsParseRequest, JobsPlanRequest, JobsReadRequest, JobsRevertRequest, JobsStopRequest, JobsUpdateRequest} from "types/Jobs.types"
+import {JobsCreateRequest, JobsListRequest, JobsParseRequest, JobsPlanRequest, JobsReadRequest, JobsDispatchRequest, JobsRevertRequest, JobsStopRequest, JobsUpdateRequest} from "types/Jobs.types"
 
 function list(Use: JobsListRequest) {
     let Request: ClusterRequest = {
@@ -66,6 +66,19 @@ function update(Use: JobsUpdateRequest) {
 
 }
 
+function dispatch(Use: JobsDispatchRequest) {
+    let Request: ClusterRequest = {
+        path: `jobs.dispatch`,
+        query: Use?.query ?? {},
+        body: {
+            Payload: Use.payload,
+        },
+        params: {"job_id":Use.job_id}
+    }
+    return Request
+
+}
+
 function stop(Use: JobsStopRequest) {
 
     let Query = Use?.query ?? {}
@@ -121,6 +134,7 @@ const JobsConstructor = {
     update,
     stop,
     revert,
+    dispatch,
     plan
 }
 

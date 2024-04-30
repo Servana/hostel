@@ -55,7 +55,7 @@ export type JobsPlanRequest = {
 
 export type JobsDispatchRequest = {
     payload: Record<string, any> | any
-    job_id?: string,
+    job_id: string,
     meta: Record<string, string>,
     query?: Record<string, string>
 }

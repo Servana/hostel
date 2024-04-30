@@ -114,7 +114,7 @@ export default class Hostel {
         parse: async (Request: JobsParseRequest) => this.makeRequest(JobsConstructor.parse(Request))    ,
         update: async (Request: JobsUpdateRequest) => this.makeRequest(JobsConstructor.update(Request)),
         stop: async (Request: JobsStopRequest) => this.makeRequest(JobsConstructor.stop(Request)),
-        dispatch: async (Request: JobsDispatchRequest) => this.makeRequest(JobsConstructor.revert(Request)),
+        dispatch: async (Request: JobsDispatchRequest) => this.makeRequest(JobsConstructor.dispatch(Request)),
         revert: async (Request: JobsRevertRequest) => this.makeRequest(JobsConstructor.revert(Request)),
         plan: async (Request: JobsPlanRequest) => this.makeRequest(JobsConstructor.plan(Request)),
     }

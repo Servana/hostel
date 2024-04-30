@@ -115,6 +115,14 @@ const BaseSchema = {
             action: false,
             path: "/job",
         },
+        dispatch:{
+            query: [],
+            params:["job_id"],
+            body: ["JobID","Payload"],
+            type: "delete",
+            action: false,
+            path: "/job/:job_id/dispatch",
+        },
         plan:{
             query: [],
             params:["job_id"],
@@ -192,6 +200,7 @@ const Schema: FlattenedSchema = {
     'jobs.parse': BaseSchema.jobs.parse,
     'jobs.update': BaseSchema.jobs.update,
     'jobs.stop': BaseSchema.jobs.stop,
+    'jobs.dispatch': BaseSchema.jobs.dispatch,
     'jobs.revert': BaseSchema.jobs.revert,
     'jobs.plan': BaseSchema.jobs.plan,
     'nodes.list': BaseSchema.nodes.list,
